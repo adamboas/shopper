@@ -7,21 +7,37 @@ import {
   Routes,
   Route 
 } from "react-router-dom";
+import { FC } from 'react';
 import App from './App';
 import ShoppingLists from './routes/shopping_lists';
 import Recipes from './routes/recipes';
+
+const lists = [
+  "Jan 12th",
+  "Jan 19th",
+  "Jan 26th",
+]
+
+const recipe_list = [
+  "Not meat lasagne",
+  "Notage rolls",
+  "Chicken pesto pasta",
+  "Lily's tomato soup"
+]
+
+const rootElement = document.getElementById("root");
 
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<App />} />
-        <Route path="shopping_lists" element={<ShoppingLists />} />
-        <Route path="recipes" element={<Recipes />} />
+        <Route path="shopping_lists" element={<ShoppingLists data={lists} />} />
+        <Route path="recipes" element={<Recipes data={recipe_list} />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>,
-  document.getElementById('root')
+  rootElement
 );
 
 // If you want to start measuring performance in your app, pass a function
